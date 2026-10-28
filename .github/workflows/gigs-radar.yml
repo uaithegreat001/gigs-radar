@@ -1,0 +1,22 @@
+name: Gigs Radar
+
+on:
+  workflow_dispatch:        # manual button only, for testing 
+  # schedule:               # turn this on later
+  #   - cron: '0 7 * * *'   # 07:00 UTC = 08:07 in Lagos Nigeria
+
+jobs:
+  run:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - run: npm ci
+      - run: node main.js
+        env:
+          APIFY_TOKEN: ${{ secrets.APIFY_TOKEN }}
+          DISCORD_WEBHOOK_URL: ${{ secrets.DISCORD_WEBHOOK_URL }}
+          MONGODB_URI: ${{ secrets.MONGODB_URI }}
