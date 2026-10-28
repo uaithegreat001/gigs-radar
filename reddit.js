@@ -49,7 +49,8 @@ export async function fetchSubreddit(subreddit, limit) {
     });
 
     if (!response.ok) {
-        throw new Error(`Apify request failed: HTTP ${response.status}`);
+        const body = await response.text();
+        throw new Error(`Apify request failed: HTTP ${response.status} and ${body}`);
     }
 
     const items = await response.json();
