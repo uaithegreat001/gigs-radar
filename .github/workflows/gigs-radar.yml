@@ -20,3 +20,4 @@ jobs:
           APIFY_TOKEN: ${{ secrets.APIFY_TOKEN }}
           DISCORD_WEBHOOK_URL: ${{ secrets.DISCORD_WEBHOOK_URL }}
           MONGODB_URI: ${{ secrets.MONGODB_URI }}
+          DATABASE_NAME: ${{ secrets.DATABASE_NAME }}
