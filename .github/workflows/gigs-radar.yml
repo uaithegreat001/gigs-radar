@@ -2,8 +2,8 @@ name: Gigs Radar
 
 on:
   workflow_dispatch:        # manual button only, for testing 
-  # schedule:               # turn this on later
-  #   - cron: '0 7 * * *'   # 07:00 UTC = 08:07 in Lagos Nigeria
+  schedule:               # turn this on later
+   - cron: '0 17 * * *'   # 07:00 UTC = 08:07 in Lagos Nigeria
 
 jobs:
   run:
